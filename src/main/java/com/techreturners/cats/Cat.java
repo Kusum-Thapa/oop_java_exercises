@@ -19,17 +19,25 @@ interface Cat {
 /* Abstract class for Cat */
 abstract class CatImp implements Cat {
 
-	boolean isAsleep = false;
-	private float height;
+	private boolean isAsleep = false;
+	private float avgHeight;
+	private String setting;
 
-	public float getHeight() {
-		return height;
+	public float getAverageHeight() {
+		return avgHeight;
 	}
 
-	public void setHeight(float height) {
-		this.height = height;
+	public void setAverageHeight(float avgHeight) {
+		this.avgHeight = avgHeight;
 	}
 
+	public String getSetting() {
+		return setting;
+	}
+
+	public void setSetting(String setting) {
+		this.setting = setting;
+	}
 	public boolean isAsleep() {
 		return isAsleep;
 	}
@@ -42,31 +50,20 @@ abstract class CatImp implements Cat {
 		isAsleep = true;
 	}
 
-	public float getAverageHeight() {
-		setHeight((float) 30.95);
-		return getHeight();
-	}
-
-	public abstract String getSetting();
-
+	public abstract String eat();
 }
 
 /* Domestic Cat */
 class DomesticCat extends CatImp {
 	private static final String noise = "Purrrrrrr";
 
+	DomesticCat(){
+		this.setAverageHeight((float) 23);
+		this.setSetting("domestic");
+	}
+
 	public String eat() {
 		return noise;
-	}
-
-	public String getSetting() {
-		return "domestic";
-	}
-
-	@Override
-	public float getAverageHeight() {
-		this.setHeight((float) 23);
-		return this.getHeight();
 	}
 }
 
@@ -74,18 +71,13 @@ class DomesticCat extends CatImp {
 class LionCat extends CatImp {
 	private static final String noise = "Roar!!!!";
 
+	LionCat(){
+		this.setAverageHeight((float) 1100);
+		this.setSetting("wild");
+	}
+
 	public String eat() {
 		return noise;
-	}
-
-	public String getSetting() {
-		return "wild";
-	}
-
-	@Override
-	public float getAverageHeight() {
-		this.setHeight((float) 1100);
-		return this.getHeight();
 	}
 }
 
@@ -93,11 +85,12 @@ class LionCat extends CatImp {
 class CheetahCat extends CatImp {
 	private static final String noise = "Zzzzzzz";
 
+	CheetahCat(){
+		this.setAverageHeight((float) 200);
+		this.setSetting("wild");
+	}
+	
 	public String eat() {
 		return noise;
-	}
-
-	public String getSetting() {
-		return "wild";
 	}
 }
