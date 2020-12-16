@@ -4,7 +4,7 @@ class DomesticCat extends CatImp {
 	private static final String noise = "Purrrrrrr";
 
 	DomesticCat(){
-		this.setAverageHeight((float) 23);
+		this.setAverageHeight(23f);
 		this.setSetting("domestic");
 	}
 

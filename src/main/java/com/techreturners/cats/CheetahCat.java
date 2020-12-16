@@ -4,7 +4,7 @@ class CheetahCat extends CatImp {
 	private static final String noise = "Zzzzzzz";
 
 	CheetahCat(){
-		this.setAverageHeight((float) 200);
+		this.setAverageHeight(200f);
 		this.setSetting("wild");
 	}
 	
